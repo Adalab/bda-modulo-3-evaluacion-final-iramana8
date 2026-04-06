@@ -30,12 +30,12 @@ def numerical_variables_analysis(df):
     
     print("NUMERICAL VARIABLES ANALYSIS\n")
     
-    # 1 Descriptive Statistics and Outlier Identificacion
+    # 1 Descriptive Statistics and Outlier Identification
     for col in df_num.columns:
         
         # Compute mode (handling possible multiple modes or empty results)
-        mode_series = df_num[col].mode()
-        mode_value = mode_series.iloc[0] if not mode_series.empty else np.nan
+        mode = df_num[col].mode()
+        mode_value = mode.iloc[0] if not mode.empty else np.nan
         
         # Compute quartiles and IQR for outlier detection
         q1 = df_num[col].quantile(0.25)
@@ -78,8 +78,7 @@ def numerical_variables_analysis(df):
         mask=mask,
         square=True,
         linewidths=0.5,
-        cbar_kws={"shrink": 0.8}
-    )
+        cbar_kws={"shrink": 0.8})
     
     plt.title("Correlation Matrix", fontsize=14, fontweight="bold")
     plt.tight_layout()
@@ -124,8 +123,7 @@ def categorical_variables_analysis(df):
         
         table = pd.DataFrame({
             "Count": freq,
-            "Percentage (%)": perc
-        })
+            "Percentage (%)": perc})
         
         display(table)
         print("-" * 40)

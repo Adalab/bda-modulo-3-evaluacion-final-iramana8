@@ -4,7 +4,7 @@ import seaborn as sns
 
 
 class Visualizations:
-    
+
     """
     This class groups all visualization methods used in Phase 3 of the assessment.
     It applies a consistent visual style across all charts.
@@ -42,6 +42,13 @@ class Visualizations:
 
         """
         Return one row per customer for customer-level visualizations.
+
+        The original dataset contains multiple records per customer (one per month),
+        which would lead to duplicated individuals in analyses focused on customer
+        attributes (e.g., province, salary, loyalty card).
+
+        This function removes duplicate entries based on "Loyalty Number" to ensure
+        that each customer is counted only once, preventing biased or inflated results.
 
         Parameters:
         -----------
@@ -86,10 +93,7 @@ class Visualizations:
         Plot total flights booked by month.
         """
 
-        monthly_flights = (
-            self.df.groupby("Month", as_index=False)["Flights Booked"]
-            .sum()
-            .sort_values("Month"))
+        monthly_flights = (self.df.groupby("Month", as_index=False)["Flights Booked"].sum().sort_values("Month"))
 
         plt.figure(figsize=(10, 6))
         sns.barplot(
