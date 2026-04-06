@@ -3,7 +3,7 @@ bda-modulo-3-evaluacion-final-iramana8 created by GitHub Classroom
 
 # Airline Loyalty Program Analysis
 
-This project is the final assessment of **Module 3: Transforming Data** from in the Adalab Data Analytics & AI bootcamp.
+This project is the final assessment of **Module 3: Transforming Data** in the Adalab Data Analytics & AI bootcamp.
 
 ---
 
